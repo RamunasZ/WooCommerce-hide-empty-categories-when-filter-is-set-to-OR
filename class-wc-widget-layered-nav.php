@@ -284,15 +284,15 @@ class WC_Widget_Layered_Nav extends WP_Widget {
 					if ( $query_type == 'or' && ! ( sizeof( $current_filter ) == 1 && isset( $_chosen_attributes[ $taxonomy ]['terms'] ) && is_array( $_chosen_attributes[ $taxonomy ]['terms'] ) && in_array( $term->term_id, $_chosen_attributes[ $taxonomy ]['terms'] ) ) )
 						$link = add_query_arg( 'query_type_' . sanitize_title( $instance['attribute'] ), 'or', $link );
 
-				    echo '<li ' . $class . '>';
+					echo ( $count > 0 || $option_is_set ) ? '<li ' . $class . '>' : '<div style="display:none">';
 
-					echo ( $count > 0 || $option_is_set ) ? '<a href="' . esc_url( apply_filters( 'woocommerce_layered_nav_link', $link ) ) . '">' : '<span>';
+					echo ( $count > 0 || $option_is_set ) ? '<a href="' . esc_url( apply_filters( 'woocommerce_layered_nav_link', $link ) ) . '">' : '';
 
 					echo $term->name;
 
-					echo ( $count > 0 || $option_is_set ) ? '</a>' : '</span>';
+					echo ( $count > 0 || $option_is_set ) ? '</a>' : '';
 
-					echo ' <small class="count">' . $count . '</small></li>';
+					echo ( $count > 0 || $option_is_set ) ? ' <small class="count">' . $count . '</small></li>' : '</div>';
 
 				}
 
