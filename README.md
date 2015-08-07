@@ -4,3 +4,5 @@ This code change helps to hide empty attributes.
 
 Edit file:
 ../wp-content/plugins/woocommerce/classes/widgets/class-wc-widget-layered-nav.php
+
+To see changes on GitHub click on file and then click "History". There you can find updated lines.
